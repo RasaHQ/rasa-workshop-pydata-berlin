@@ -35,5 +35,5 @@ def run_online(input_channel, interpreter,
 
 if __name__ == '__main__':
     utils.configure_colored_logging(loglevel="INFO")
-    nlu_interpreter = RasaNLUInterpreter('modes/nlu/default/current')
+    nlu_interpreter = RasaNLUInterpreter('models/nlu/default/current')
     run_online(ConsoleInputChannel(), nlu_interpreter)
