@@ -8,7 +8,7 @@ import logging
 from rasa_core import utils
 from rasa_core.agent import Agent
 from rasa_core.channels.console import ConsoleInputChannel
-from rasa_core.interpreter import RegexInterpreter
+from rasa_core.interpreter import RasaNLUInterpreter
 from rasa_core.policies import FallbackPolicy, KerasPolicy, MemoizationPolicy
 
 logger = logging.getLogger(__name__)
@@ -35,4 +35,5 @@ def run_online(input_channel, interpreter,
 
 if __name__ == '__main__':
     utils.configure_colored_logging(loglevel="INFO")
-    run_online(ConsoleInputChannel(), RegexInterpreter())
+    nlu_interpreter = RasaNLUInterpreter('modes/nlu/default/current')
+    run_online(ConsoleInputChannel(), nlu_interpreter)
